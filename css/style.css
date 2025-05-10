@@ -1,0 +1,221 @@
+/* style.css */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: #ffffff;
+    color: #1e1e1e;
+    line-height: 1.6;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar a:hover {
+    background-color: #f2f2f2;
+  }
+  
+  /* Banner */
+  .banner {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .banner h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .banner p {
+    color: #888;
+  }
+  
+  /* Content Section */
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+  }
+  
+  .testimonial {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+  }
+  
+  .image-placeholder {
+    background-color: #000000;
+    height: 30%;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+
+  .image-pacar{
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  blockquote {
+    font-style: italic;
+    margin: 1rem 0;
+  }
+  
+  .profile {
+    /* background-image: ('../assest/pacargua.jpg'); */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+  }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* .avatar-pacar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+  } */
+  
+  .contact-form {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: #f2f4f7;
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .contact-form h2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-form p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #444;
+  }
+  
+  .contact-form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .contact-form input,
+  .contact-form select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .contact-form button {
+    margin-top: 1.5rem;
+    padding: 0.7rem;
+    width: 100%;
+    background-color: #1e1e1e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .banner button {
+    margin-top: 1.5rem;
+    padding: 0.7rem;
+    width: 12rem;
+    background-color: #1e1e1e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  /* Features */
+  .features {
+    background-color: #fff;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .features p {
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+  
+  .features ol {
+    list-style: decimal inside;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 1rem;
+  }
+  
+  .features li {
+    margin-bottom: 1rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar ul {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+  
