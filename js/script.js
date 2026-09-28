@@ -1,66 +1,14 @@
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-menuToggle?.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-});
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuToggle?.setAttribute('aria-expanded', 'false');
-  });
-});
-
-const form = document.querySelector('#travel-form');
-const status = document.querySelector('#form-status');
-
-form?.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  const name = document.querySelector('#name');
-  const email = document.querySelector('#email');
-  const interest = document.querySelector('#interest');
-
-  if (!name.value.trim()) {
-    showError('Please enter your name.', name);
-    return;
-  }
-
-  if (!email.value.trim() || !validateEmail(email.value)) {
-    showError('Please enter a valid email address.', email);
-    return;
-  }
-
-  if (!interest.value) {
-    showError('Please choose a destination.', interest);
-    return;
-  }
-
-  status.textContent = `Beautiful choice, ${name.value.trim().split(' ')[0]}! We’ll be in touch within 24 hours.`;
-  status.classList.add('success');
-  form.reset();
-});
-
-function showError(message, field) {
-  status.textContent = message;
-  status.classList.remove('success');
-  field.focus();
-}
-
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-const sections = document.querySelectorAll('main section[id]');
-const navItems = document.querySelectorAll('.nav-links a');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    navItems.forEach((item) => item.classList.toggle('active', item.getAttribute('href') === `#${entry.target.id}`));
-  });
-}, { rootMargin: '-35% 0px -55% 0px' });
-
-sections.forEach(section => observer.observe(section));
+const menuToggle=document.querySelector('.menu-toggle'),navLinks=document.querySelector('.nav-links');
+menuToggle?.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open))});
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle?.setAttribute('aria-expanded','false')}));
+const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+const counters=document.querySelectorAll('[data-count]');const countObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,target=Number(el.dataset.count);let n=0;const step=Math.max(1,Math.ceil(target/45));const tick=()=>{n=Math.min(target,n+step);el.textContent=n>=1000?(n/1000).toFixed(n%1000?1:0)+'k':n+'+';if(n<target)requestAnimationFrame(tick)};tick();countObserver.unobserve(el)}),{threshold:.8});counters.forEach(x=>countObserver.observe(x));
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.destination-card').forEach(card=>{card.classList.toggle('is-hidden',f!=='all'&&!card.dataset.category.split(' ').includes(f))})}));
+const toast=document.querySelector('#toast');document.querySelectorAll('.card-button').forEach(btn=>btn.addEventListener('click',()=>{document.querySelector('#contact').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const input=document.querySelector('#mood');document.querySelectorAll('.mood').forEach(m=>m.classList.remove('selected'));input.value=btn.dataset.place;showToast(btn.dataset.place+' sounds like a beautiful idea ✦')},500)}));
+document.querySelectorAll('.mood').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.mood').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');document.querySelector('#mood').value=btn.dataset.value}));
+const form=document.querySelector('#travel-form'),status=document.querySelector('#form-status');form?.addEventListener('submit',e=>{e.preventDefault();const name=document.querySelector('#name'),email=document.querySelector('#email'),mood=document.querySelector('#mood');if(!name.value.trim()){status.textContent='Tell us your name first.';name.focus();return}if(!/^\S+@\S+\.\S+$/.test(email.value)){status.textContent='Please enter a valid email.';email.focus();return}if(!mood.value){status.textContent='Pick a trip mood.';return}status.textContent='Perfect, '+name.value.trim().split(' ')[0]+' — your idea is on its way ✦';status.classList.add('success');showToast('Trip idea saved for this demo ✦');form.reset();document.querySelectorAll('.mood').forEach(b=>b.classList.remove('selected'))});
+function showToast(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>toast.classList.remove('show'),2800)}
+const sections=document.querySelectorAll('main section[id]'),navItems=document.querySelectorAll('.nav-links a');const navObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)navItems.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-35% 0px -55% 0px'});sections.forEach(s=>navObserver.observe(s));
+const glow=document.querySelector('.cursor-glow');window.addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>img.parentElement?.classList.add('image-fallback')));
