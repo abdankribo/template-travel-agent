@@ -1,119 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel Agent</title>
+  <meta name="description" content="A modern travel experience crafted around the way you want to explore.">
+  <title>Wanderly — Travel, beautifully planned</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="logo">moqups</div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#package">Our Package</a></li>
-      <li><a href="#cta">Call Us</a></li>
-    </ul>
-  </nav>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Wanderly home">
+        <span class="brand-mark">W</span>
+        <span>Wanderly</span>
+      </a>
 
-  <section class="banner" id="home">
-    <h1>Your Trusted Travel Agent's</h1>
-    <p>Your happiness is our hapiness</p>
-  </section>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-  <section class="content">
-    <div class="testimonial">
-      <div class="image-placeholder">
-        <img class="image-pacar" src="assets/pacargua.jpg" alt="pacargua">
+      <div class="nav-links">
+        <a class="active" href="#home">Home</a>
+        <a href="#packages">Destinations</a>
+        <a href="#why-us">Why us</a>
+        <a href="#contact">Contact</a>
       </div>
-      <blockquote>"Liburan jadi menyenangkan bersama Travel Agentku."</blockquote>
-      <div class="profile">
-        <div class="avatar">
-          <img class="avatar-pacar" src="assest/pacarbarugua.jpg" alt="Profile Photo">
+
+      <a class="nav-cta" href="#contact">Plan a trip <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Your next chapter starts here</span>
+        <h1>Travel <em>beautifully.</em><br>Remember <span>everything.</span></h1>
+        <p class="hero-text">Thoughtful journeys, handpicked places, and the freedom to explore at your own pace. Let us turn your next getaway into a story worth keeping.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#packages">Explore destinations <span>→</span></a>
+          <a class="text-link" href="#contact"><span class="play">▶</span> Talk to a travel expert</a>
         </div>
+        <div class="hero-meta">
+          <div class="avatars" aria-label="Happy travelers">
+            <img src="assest/pacarbarugua.jpg" alt="">
+            <span>+2k</span>
+          </div>
+          <div>
+            <strong>Loved by curious travelers</strong>
+            <div class="stars">★★★★★ <small>4.9/5 from 500+ trips</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="image-card main-image">
+          <img src="assest/pacargua.jpg" alt="Travelers enjoying a destination">
+          <div class="image-overlay"></div>
+          <div class="location-pill"><span>✦</span> Bali, Indonesia</div>
+          <div class="floating-note">
+            <span class="note-icon">✈</span>
+            <div><small>Next escape</small><strong>7 days in Bali</strong></div>
+            <span class="arrow">↗</span>
+          </div>
+        </div>
+        <div class="mini-card">
+          <span class="mini-icon">✦</span>
+          <div><strong>Curated for you</strong><small>Not another generic tour</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-inner">
+        <span>AS SEEN IN</span>
+        <strong>travel<span>+</span>leisure</strong>
+        <strong>VOGUE</strong>
+        <strong>Condé Nast</strong>
+        <strong>Forbes</strong>
+        <strong>lonely planet</strong>
+      </div>
+    </section>
+
+    <section class="section container" id="packages">
+      <div class="section-heading">
         <div>
-          <strong>Florence Hughes</strong><br>
-          <small>Ibu Rumah Tangga, 28</small>
+          <span class="eyebrow">✦ Explore with intention</span>
+          <h2>Places that feel <em>like you.</em></h2>
+        </div>
+        <a class="text-link desktop-link" href="#contact">View all destinations <span>→</span></a>
+      </div>
+
+      <div class="destination-grid">
+        <article class="destination-card destination-large">
+          <img src="assest/pacargua.jpg" alt="Bali travel destination">
+          <div class="card-shade"></div>
+          <div class="card-content">
+            <span class="tag">Most loved</span>
+            <h3>Bali</h3>
+            <p>Island rituals, quiet beaches &amp; unforgettable sunsets.</p>
+            <span class="card-arrow">↗</span>
+          </div>
+        </article>
+
+        <article class="destination-card">
+          <div class="destination-placeholder japan">
+            <span>富士山</span>
+          </div>
+          <div class="card-content dark">
+            <span class="tag dark-tag">Slow escape</span>
+            <h3>Japan</h3>
+            <p>Old-world charm meets a beautifully modern rhythm.</p>
+            <span class="card-arrow dark-arrow">↗</span>
+          </div>
+        </article>
+
+        <article class="destination-card">
+          <div class="destination-placeholder singapore">
+            <span>SG</span>
+          </div>
+          <div class="card-content dark">
+            <span class="tag dark-tag">City break</span>
+            <h3>Singapore</h3>
+            <p>Design, food and culture packed into one vibrant city.</p>
+            <span class="card-arrow dark-arrow">↗</span>
+          </div>
+        </article>
+
+        <article class="destination-card">
+          <div class="destination-placeholder bandung">
+            <span>BDG</span>
+          </div>
+          <div class="card-content dark">
+            <span class="tag dark-tag">Weekend</span>
+            <h3>Bandung</h3>
+            <p>Cool air, creative corners and slow mornings.</p>
+            <span class="card-arrow dark-arrow">↗</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="why-section" id="why-us">
+      <div class="container why-grid">
+        <div class="why-copy">
+          <span class="eyebrow">✦ The Wanderly way</span>
+          <h2>Less planning.<br><em>More living.</em></h2>
+          <p>We believe travel should feel personal, not packaged. Our team combines local knowledge with thoughtful details so you can spend less time researching and more time being there.</p>
+          <a class="button button-dark" href="#contact">Meet your travel expert <span>→</span></a>
+        </div>
+
+        <div class="benefits">
+          <article>
+            <span class="benefit-number">01</span>
+            <div><span class="benefit-icon">✦</span><h3>Made for you</h3><p>Every itinerary starts with your pace, your interests and your kind of adventure.</p></div>
+          </article>
+          <article>
+            <span class="benefit-number">02</span>
+            <div><span class="benefit-icon">⌁</span><h3>Local insight</h3><p>Discover places and experiences beyond the obvious tourist checklist.</p></div>
+          </article>
+          <article>
+            <span class="benefit-number">03</span>
+            <div><span class="benefit-icon">↗</span><h3>Always in reach</h3><p>From the first idea to the flight home, a real person is here when you need us.</p></div>
+          </article>
         </div>
       </div>
-      <div class="features">
-        <p>Use this space to provide users with more information about your offer. Consider it a follow-up to your headline and explain the benefits of your service or product</p>
-        <ol>
-          <li>Your first feature, written in the form of a benefit statement.</li>
-          <li>Your second feature, written in the form of a benefit statement.</li>
-          <li>Your third feature written, in the form of a benefit statement.</li>
-        </ol>
+    </section>
+
+    <section class="testimonial-section container">
+      <div class="quote-mark">“</div>
+      <blockquote>“The kind of trip where you stop checking the time and start noticing everything.”</blockquote>
+      <div class="profile">
+        <img src="assest/pacarbarugua.jpg" alt="Florence Hughes">
+        <div><strong>Florence Hughes</strong><span>First-time Bali explorer</span></div>
       </div>
-    </div>
+    </section>
 
-    <div class="contact-form">
-      <h2>Contact Us</h2>
-      <p>Sales akan menghubungi anda 1x24 Jam setelah data kami terima.</p>
-      <form>
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" placeholder="First and last name">
+    <section class="contact-section container" id="contact">
+      <div class="contact-intro">
+        <span class="eyebrow">✦ Start somewhere</span>
+        <h2>Where do you want<br>to <em>go next?</em></h2>
+        <p>Tell us a little about your dream trip. We’ll get back to you within 24 hours with a few ideas worth considering.</p>
+        <div class="contact-detail"><span>✦</span><div><small>Prefer a conversation?</small><strong>hello@wanderly.travel</strong></div></div>
+      </div>
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" placeholder="example@email.com">
-
-        <label for="interest">What are you interested in?</label>
-        <select id="interest">
-          <option value="">Select option</option>
+      <form class="contact-form" id="travel-form" novalidate>
+        <div class="form-top"><span>01 / 02</span><span>Trip details</span></div>
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" placeholder="First and last name" autocomplete="name">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+        <label for="interest">Where are you dreaming of?</label>
+        <select id="interest" name="interest">
+          <option value="">Choose a destination</option>
           <option value="bali">Bali</option>
           <option value="japan">Japan</option>
           <option value="singapore">Singapore</option>
+          <option value="bandung">Bandung</option>
+          <option value="surabaya">Surabaya</option>
+          <option value="other">Somewhere else</option>
         </select>
-
-        <button type="submit">SEND</button>
+        <button class="button button-accent" type="submit">Start planning <span>→</span></button>
+        <p class="form-note" id="form-status" role="status">No spam. Just thoughtful travel ideas.</p>
       </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-top">
+      <a class="brand" href="#home"><span class="brand-mark">W</span><span>Wanderly</span></a>
+      <p>Go somewhere that changes you.</p>
+      <div class="footer-links"><a href="#packages">Destinations</a><a href="#why-us">About</a><a href="#contact">Contact</a></div>
     </div>
-  </section>
-
-  <section class="features" id="package">
-    <h2>Our Package</h2>
-    <div class="content">
-      <div class="contact-form">
-        <strong>Bali</strong>
-        <p>Travel dan wisata di Bali. Kunjungi cagar budaya dan kuliner yang menarik.</p>
-      </div>
-      <div class="contact-form">
-        <strong>Japan</strong>
-        <p>Travel dan wisata di Jepang. Kunjungi cagar budaya dan kuliner yang menarik.</p>
-      </div>
-      <div class="contact-form">
-        <strong>Singapore</strong>
-        <p>This description supports and extends the bullet point above.</p>
-      </div>
-      <div class="contact-form">
-        <strong>Bandung</strong>
-        <p>This description supports and extends the bullet point above.</p>
-      </div>
-      <div class="contact-form">
-        <strong>Surabaya</strong>
-        <p>This description supports and extends the bullet point above.</p>
-      </div>
-      <div class="contact-form">
-        <strong>Third Feature</strong>
-        <p>This description supports and extends the bullet point above.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="banner" id="cta">
-    <h2>Your Closing Argument Headline</h2>
-    <p>Suspendisse egestas rhoncus urna in bibendum. Donec urna neque, euismod sed justo quis, convallis tincidunt risus. Phasellus fringilla odio vel erat fringilla.</p>
-    <button type="submit">CALL TO ACTION</button>
-  </section>
-
-  <footer class="banner">
-    <div class="logo">moqups</div>
-    <p>Terms of Service &nbsp; Privacy Policy</p>
-    <p>&copy; 2019 Moqups</p>
+    <div class="container footer-bottom"><span>© 2026 Wanderly Travel Co.</span><span>Made for the curious.</span><span>Privacy · Terms</span></div>
   </footer>
 
   <script src="js/script.js"></script>
 </body>
-
 </html>
