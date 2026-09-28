@@ -1,53 +1,66 @@
-// script.js
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-// Banner Auto Slide
-let currentSlide = 0;
-const slides = [
-  'Your Trusted Travel Agent\'s',
-  'Explore the World with Us',
-  'Plan Your Dream Vacation Today'
-];
+menuToggle?.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+});
 
-function showNextSlide() {
-  const bannerTitle = document.querySelector('.banner h1');
-  currentSlide = (currentSlide + 1) % slides.length;
-  bannerTitle.textContent = slides[currentSlide];
-}
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+  });
+});
 
-setInterval(showNextSlide, 3000);
+const form = document.querySelector('#travel-form');
+const status = document.querySelector('#form-status');
 
-// Form Validation
-const form = document.querySelector('form');
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
+form?.addEventListener('submit', (event) => {
+  event.preventDefault();
 
   const name = document.querySelector('#name');
   const email = document.querySelector('#email');
   const interest = document.querySelector('#interest');
 
   if (!name.value.trim()) {
-    alert('Please enter your name.');
-    name.focus();
+    showError('Please enter your name.', name);
     return;
   }
 
   if (!email.value.trim() || !validateEmail(email.value)) {
-    alert('Please enter a valid email address.');
-    email.focus();
+    showError('Please enter a valid email address.', email);
     return;
   }
 
   if (!interest.value) {
-    alert('Please select your interest.');
-    interest.focus();
+    showError('Please choose a destination.', interest);
     return;
   }
 
-  alert('Form submitted successfully!');
+  status.textContent = `Beautiful choice, ${name.value.trim().split(' ')[0]}! We’ll be in touch within 24 hours.`;
+  status.classList.add('success');
   form.reset();
 });
 
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
+function showError(message, field) {
+  status.textContent = message;
+  status.classList.remove('success');
+  field.focus();
 }
+
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+const sections = document.querySelectorAll('main section[id]');
+const navItems = document.querySelectorAll('.nav-links a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    navItems.forEach((item) => item.classList.toggle('active', item.getAttribute('href') === `#${entry.target.id}`));
+  });
+}, { rootMargin: '-35% 0px -55% 0px' });
+
+sections.forEach(section => observer.observe(section));
